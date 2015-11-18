@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TaskNet</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_task_net">Task Net</string>
+    <string name="title_activity_create_task">Create Task</string>
+    <string name="form_font_size">16sp</string>
+    <string name="TaskAttributeTitle">Title</string>
+    <string name="TaskAttributeDescription">Description</string>
+    <string name="action_create_task">Save</string>
+    <string-array name="spinnerItems_taskTypes">
+        <item>Deadline</item>
+        <item>On-going</item>
+        <item>One-time Event</item>
+    </string-array>
+</resources>
