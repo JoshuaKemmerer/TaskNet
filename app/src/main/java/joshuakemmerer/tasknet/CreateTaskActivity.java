@@ -307,7 +307,9 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
         }
         else if(isEventTaskString(spinnerSelection))
         {
-
+            Log.v("createTask()", "saving event");
+            Event task = new Event(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
+            task.saveToStorage(this);
         }
     }
 

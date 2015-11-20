@@ -2,6 +2,7 @@ package joshuakemmerer.tasknet;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,6 +40,7 @@ public abstract class Task {
         setDate("");
         setTime("");
         setIsAllDay(false);
+        setReminders(new ArrayList<Reminder>());
     }
 
     public Task(int id, int priority, String title, String description, String date, String time, boolean isAllDay)
