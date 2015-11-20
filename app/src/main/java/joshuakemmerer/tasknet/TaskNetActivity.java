@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -25,12 +26,18 @@ public class TaskNetActivity extends ListActivity
         setContentView(R.layout.activity_task_net);
 
         ArrayList<Task> list = new ArrayList<>();
-        list.add(new Ongoing(0, "Here is my title", "This is some super awesome description that I just thought of", "Oct. 12, 2015", "6:00 PM", "Oct. 15, 2015", "6:23 AM", true));
-        list.add(new Ongoing(1, "Here is my other title", "Here is another awesome description!", "Oct. 14, 2015", "2:00 PM", "Oct. 15, 2015", "9:23 AM", true));
+//        list.add(new Ongoing(0, "Here is my title", "This is some super awesome description that I just thought of", "Oct. 12, 2015", "6:00 PM", "Oct. 15, 2015", "6:23 AM", true));
+//        list.add(new Ongoing(1, "Here is my other title", "Here is another awesome description!", "Oct. 14, 2015", "2:00 PM", "Oct. 15, 2015", "9:23 AM", true));
 
         List<Ongoing> ongoingTasks = Ongoing.getFromStorage(this);
         for(Ongoing t : ongoingTasks)
             list.add(t);
+
+        // add all deadline tasks to allTasks
+        List<Deadline> deadlines = Deadline.getFromStorage(this);
+        for(Deadline d : deadlines)
+            list.add(d);
+
         TaskAdapter adapter = new TaskAdapter(this, R.layout.task_layout, list);
         setListAdapter(adapter);
         /*
@@ -61,10 +68,18 @@ public class TaskNetActivity extends ListActivity
     protected void loadTasks()
     {
         ArrayList<Task> allTasks = new ArrayList<>();
-        List<Ongoing> ongoings = Ongoing.getFromStorage(this);
 
+        // add all ongoing tasks to allTasks
+        List<Ongoing> ongoings = Ongoing.getFromStorage(this);
         for(Ongoing ongoing : ongoings)
             allTasks.add(ongoing);
+
+        // add all deadline tasks to allTasks
+        List<Deadline> deadlines = Deadline.getFromStorage(this);
+        for(Deadline d : deadlines)
+            allTasks.add(d);
+        Log.v("deadlines", Integer.toString(deadlines.size()));
+
         TaskAdapter adapter = new TaskAdapter(this, R.layout.task_layout, allTasks);
         setListAdapter(adapter);
     }

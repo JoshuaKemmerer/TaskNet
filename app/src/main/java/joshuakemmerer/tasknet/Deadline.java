@@ -63,6 +63,12 @@ public class Deadline extends Task
         return repo.insert(this);
     }
 
+    public static List<Deadline> getFromStorage(Context activityContext)
+    {
+        DeadlineTaskRepo repo = new DeadlineTaskRepo(activityContext);
+        return repo.getAllActive();
+    }
+
     public String getTasknetVisibilityDate()
     {
         return tasknetVisibilityDate;

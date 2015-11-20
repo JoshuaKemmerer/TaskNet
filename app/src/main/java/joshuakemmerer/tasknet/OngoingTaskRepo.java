@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class OngoingTaskRepo
 
         long taskId = db.insert(Ongoing.TABLE_NAME, null, values);
         db.close();
+        Log.v("ongoing insert value: ", Long.toString(taskId));
         return (int)taskId;
     }
 

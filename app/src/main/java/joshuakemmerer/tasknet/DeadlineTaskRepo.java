@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,9 @@ public class DeadlineTaskRepo
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(Task.PRIORITY, task.getPriority());
-        values.put(Task.TITLE, task.getTitle());
-        values.put(Task.DESCRIPTION, task.getDescription());
+        values.put(Deadline.PRIORITY, task.getPriority());
+        values.put(Deadline.TITLE, task.getTitle());
+        values.put(Deadline.DESCRIPTION, task.getDescription());
         values.put(Deadline.DUEDATE, task.getDate());
         values.put(Deadline.DUETIME, task.getTime());
         values.put(Deadline.ISALLDAY, task.isAllDay());
@@ -40,6 +41,7 @@ public class DeadlineTaskRepo
 
         long taskId = db.insert(Deadline.TABLE_NAME, null, values);
         db.close();
+        Log.v("somesing..............", Long.toString(taskId));
         return (int)taskId;
     }
 
@@ -47,10 +49,10 @@ public class DeadlineTaskRepo
     {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String select = "SELECT " +
-                Task.ID + ", " +
-                Task.PRIORITY + ", " +
-                Task.TITLE + ", " +
-                Task.DESCRIPTION + ", " +
+                Deadline.ID + ", " +
+                Deadline.PRIORITY + ", " +
+                Deadline.TITLE + ", " +
+                Deadline.DESCRIPTION + ", " +
                 Deadline.ISALLDAY + ", " +
                 Deadline.DUEDATE + ", " +
                 Deadline.DUETIME +

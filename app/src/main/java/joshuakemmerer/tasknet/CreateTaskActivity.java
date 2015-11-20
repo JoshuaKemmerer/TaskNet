@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -293,6 +294,7 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
 
         if(isDeadlineTaskString(spinnerSelection))
         {
+            Log.v("and here", "found you!");
             // NOTE: We can use getFromDate() and getFromTime() because:
             // the text in txtDueByDate = txtFromDate and same for time
             Deadline dl = new Deadline(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), true);
