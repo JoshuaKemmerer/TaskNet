@@ -33,10 +33,16 @@ public class TaskNetActivity extends ListActivity
         for(Ongoing t : ongoingTasks)
             list.add(t);
 
-        // add all deadline tasks to allTasks
+        // add all deadline tasks to list
         List<Deadline> deadlines = Deadline.getFromStorage(this);
         for(Deadline d : deadlines)
             list.add(d);
+
+        // add all event tasks to list
+        List<Event> events = Event.getFromStorage(this);
+        for(Event e : events)
+            list.add(e);
+        Log.v("events", Integer.toString(events.size()));
 
         TaskAdapter adapter = new TaskAdapter(this, R.layout.task_layout, list);
         setListAdapter(adapter);
@@ -79,6 +85,12 @@ public class TaskNetActivity extends ListActivity
         for(Deadline d : deadlines)
             allTasks.add(d);
         Log.v("deadlines", Integer.toString(deadlines.size()));
+
+        // add all event tasks to allTasks
+        List<Event> events = Event.getFromStorage(this);
+        for(Event e : events)
+            allTasks.add(e);
+        Log.v("events", Integer.toString(events.size()));
 
         TaskAdapter adapter = new TaskAdapter(this, R.layout.task_layout, allTasks);
         setListAdapter(adapter);

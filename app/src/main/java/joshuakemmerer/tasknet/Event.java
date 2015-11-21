@@ -60,7 +60,13 @@ public class Event extends Task
     @Override
     public int saveToStorage(Context context)
     {
-        // need to save TO STORAGE (CREATE TABLE AND ALL THAT SHIT)
-        return 0;
+        EventTaskRepo repo = new EventTaskRepo(context);
+        return repo.insert(this);
+    }
+
+    public static List<Event> getFromStorage(Context activityContext)
+    {
+        EventTaskRepo repo = new EventTaskRepo(activityContext);
+        return repo.getAllActive();
     }
 }
