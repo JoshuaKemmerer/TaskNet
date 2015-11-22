@@ -59,8 +59,6 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.action_create_task:
-                Toast.makeText(this, "Saving task...", Toast.LENGTH_SHORT)
-                        .show();
                 createTask();
                 break;
             default:
@@ -288,6 +286,19 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
 
     protected void createTask()
     {
+        String title = getTaskTitle();
+        String description = getDescription();
+
+        if(title.length() < 1 || description.length() < 1)
+        {
+            Toast.makeText(this, "Enter title and description.", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        Toast.makeText(this, "Saving task...", Toast.LENGTH_SHORT)
+                .show();
+
         // determine what kind of task is being saved
         Spinner spinner = (Spinner)findViewById(R.id.spnTaskTypes);
         int spinnerSelection = spinner.getSelectedItemPosition();

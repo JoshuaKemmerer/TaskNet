@@ -25,6 +25,7 @@ public class TaskNetActivity extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_net);
 
+
         ArrayList<Task> list = new ArrayList<>();
 //        list.add(new Ongoing(0, "Here is my title", "This is some super awesome description that I just thought of", "Oct. 12, 2015", "6:00 PM", "Oct. 15, 2015", "6:23 AM", true));
 //        list.add(new Ongoing(1, "Here is my other title", "Here is another awesome description!", "Oct. 14, 2015", "2:00 PM", "Oct. 15, 2015", "9:23 AM", true));

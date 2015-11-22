@@ -10,6 +10,6 @@
     <string-array name="spinnerItems_taskTypes">
         <item>Deadline</item>
         <item>On-going</item>
-        <item>One-time Event</item>
+        <item>Event</item>
     </string-array>
 </resources>
