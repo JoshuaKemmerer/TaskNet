@@ -16,7 +16,6 @@ public abstract class Task {
     private String description;
     private String date;
     private String time;
-    private boolean isAllDay;
     private boolean isActive;
     private List<Reminder> reminders;
 
@@ -27,7 +26,6 @@ public abstract class Task {
     public static final String DESCRIPTION = "description";
     public static final String DATE = "date";
     public static final String TIME = "time";
-    public static final String ISALLDAY = "isAllDay";
     public static final String ISACTIVE = "isActive";
 
 
@@ -39,11 +37,10 @@ public abstract class Task {
         setDescription("");
         setDate("");
         setTime("");
-        setIsAllDay(false);
         setReminders(new ArrayList<Reminder>());
     }
 
-    public Task(int id, int priority, String title, String description, String date, String time, boolean isAllDay)
+    public Task(int id, int priority, String title, String description, String date, String time)
     {
         setId(id);
         setPriority(priority);
@@ -51,7 +48,6 @@ public abstract class Task {
         setDescription(description);
         setDate(date);
         setTime(time);
-        setIsAllDay(isAllDay);
     }
 
     public Task(int id, int priority, String title, String description)
@@ -124,16 +120,6 @@ public abstract class Task {
     public void setReminders(List<Reminder> reminders)
     {
         this.reminders = reminders;
-    }
-
-    public boolean isAllDay()
-    {
-        return isAllDay;
-    }
-
-    public void setIsAllDay(boolean isAllDay)
-    {
-        this.isAllDay = isAllDay;
     }
 
     public abstract int saveToStorage(Context context);

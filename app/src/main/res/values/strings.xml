@@ -8,8 +8,8 @@
     <string name="TaskAttributeDescription">Description</string>
     <string name="action_create_task">Save</string>
     <string-array name="spinnerItems_taskTypes">
-        <item>Deadline</item>
-        <item>On-going</item>
         <item>Event</item>
+        <item>Deadline</item>
+        <item>Habit</item>
     </string-array>
 </resources>

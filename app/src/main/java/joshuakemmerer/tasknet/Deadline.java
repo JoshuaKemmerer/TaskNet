@@ -19,9 +19,9 @@ public class Deadline extends Task
     public static final String DUETIME = "dueTime";
 
 
-    public Deadline(int id, int priority, String title, String description, String dueDate, String dueTime, boolean isAllDay)
+    public Deadline(int id, int priority, String title, String description, String dueDate, String dueTime)
     {
-        super(id, priority, title, description, dueDate, dueTime, isAllDay);
+        super(id, priority, title, description, dueDate, dueTime);
         setIsCompleted(false);
         setSubTasks(new ArrayList<Task>());
     }
@@ -34,6 +34,7 @@ public class Deadline extends Task
         setDate(dueDate);
         setTime(dueTime);
         setIsActive(isActive);
+        setIsCompleted(false);
     }
 
     public boolean isCompleted()

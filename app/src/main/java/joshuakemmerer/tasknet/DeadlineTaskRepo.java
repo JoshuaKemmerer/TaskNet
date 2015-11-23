@@ -36,7 +36,6 @@ public class DeadlineTaskRepo
         values.put(Deadline.DESCRIPTION, task.getDescription());
         values.put(Deadline.DUEDATE, task.getDate());
         values.put(Deadline.DUETIME, task.getTime());
-        values.put(Deadline.ISALLDAY, task.isAllDay());
         values.put(Deadline.ISACTIVE, task.isActive());
 
         long taskId = db.insert(Deadline.TABLE_NAME, null, values);
@@ -53,7 +52,6 @@ public class DeadlineTaskRepo
                 Deadline.PRIORITY + ", " +
                 Deadline.TITLE + ", " +
                 Deadline.DESCRIPTION + ", " +
-                Deadline.ISALLDAY + ", " +
                 Deadline.DUEDATE + ", " +
                 Deadline.DUETIME +
                 " FROM " + Deadline.TABLE_NAME + " WHERE " + Deadline.ISACTIVE + " = 1";
@@ -67,7 +65,6 @@ public class DeadlineTaskRepo
             int colPriority = cursor.getColumnIndex(Task.PRIORITY);
             int colTitle = cursor.getColumnIndex(Task.TITLE);
             int colDescrip = cursor.getColumnIndex(Task.DESCRIPTION);
-            int colIsAllDay = cursor.getColumnIndex(Deadline.ISALLDAY);
             int colDueDate = cursor.getColumnIndex(Deadline.DUEDATE);
             int colDueTime = cursor.getColumnIndex(Deadline.DUETIME);
 
@@ -78,8 +75,7 @@ public class DeadlineTaskRepo
                         cursor.getString(colTitle),
                         cursor.getString(colDescrip),
                         cursor.getString(colDueDate),
-                        cursor.getString(colDueTime),
-                        (cursor.getInt(colIsAllDay) == 1)
+                        cursor.getString(colDueTime)
                 ));
             } while (cursor.moveToNext());
         }

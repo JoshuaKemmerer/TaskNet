@@ -11,18 +11,21 @@ public class Event extends Task
 {
     private String endDate;
     private String endTime;
+    private boolean isAllDay;
 
     public static final String TABLE_NAME = "eventTasks";
     public static final String BEGINDATE = "beginDate";
     public static final String BEGINTIME = "beginTime";
     public static final String ENDDATE = "endDate";
     public static final String ENDTIME = "endTime";
+    public static final String ISALLDAY = "isAllDay";
 
     public Event(int id, int priority, String title, String description, String beginDate, String beginTime, String endDate, String endTime, boolean isAllDay)
     {
-        super(id, priority, title, description, beginDate, beginTime, isAllDay);
+        super(id, priority, title, description, beginDate, beginTime);
         setEndDate(endDate);
         setEndTime(endTime);
+        setIsAllDay(isAllDay);
     }
 
     public Event(int priority, String title, String description, String beginDate, String beginTime, String endDate, String endTime, boolean isActive)
@@ -55,6 +58,16 @@ public class Event extends Task
     public void setEndTime(String endTime)
     {
         this.endTime = endTime;
+    }
+
+    public boolean isAllDay()
+    {
+        return isAllDay;
+    }
+
+    public void setIsAllDay(boolean isAllDay)
+    {
+        this.isAllDay = isAllDay;
     }
 
     @Override

@@ -60,7 +60,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
 
     private String getDateTimeInfo(Task task)
     {
-        if(task.getClass().getCanonicalName().equals(Ongoing.getCanonicalName()))
+        if(task.getClass().getCanonicalName().equals(Habit.getCanonicalName()))
             return "Ends on: " + getShortDateTime(task.getDate(), task.getTime());
         return "";
     }

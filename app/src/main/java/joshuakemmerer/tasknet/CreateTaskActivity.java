@@ -188,7 +188,7 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
             showDeadlineControls(true);
         }
         else if(isOngoingTaskString((int)id))
-        {// code for Ongoing task
+        {// code for Habit task
             showOngoingEventControls(true, true);
             showDeadlineControls(false);
         }
@@ -313,7 +313,7 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
         }
         else if(isOngoingTaskString(spinnerSelection))
         {
-            Ongoing task = new Ongoing(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
+            Habit task = new Habit(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
             task.saveToStorage(this);
         }
         else if(isEventTaskString(spinnerSelection))
