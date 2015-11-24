@@ -82,4 +82,10 @@ public class Event extends Task
         EventTaskRepo repo = new EventTaskRepo(activityContext);
         return repo.getAllActive();
     }
+
+    public static String getCanonicalName()
+    {
+        return Event.class.getCanonicalName();
+    }
+
 }

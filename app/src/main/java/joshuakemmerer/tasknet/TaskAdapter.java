@@ -60,8 +60,10 @@ public class TaskAdapter extends ArrayAdapter<Task>
 
     private String getDateTimeInfo(Task task)
     {
-        if(task.getClass().getCanonicalName().equals(Habit.getCanonicalName()))
+        if(task.getClass().getCanonicalName().equals(Event.getCanonicalName()))
             return "Ends on: " + getShortDateTime(task.getDate(), task.getTime());
+        if(task.getClass().getCanonicalName().equals(Deadline.getCanonicalName()))
+            return "Due by: " + getShortDateTime(task.getDate(), task.getTime());
         return "";
     }
 

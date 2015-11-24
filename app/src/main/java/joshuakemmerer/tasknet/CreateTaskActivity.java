@@ -300,11 +300,10 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
     protected void createTask()
     {
         String title = getTaskTitle();
-        String description = getDescription();
 
-        if(title.length() < 1 || description.length() < 1)
+        if(title.length() < 1)
         {
-            Toast.makeText(this, "Enter title and description.", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Enter title", Toast.LENGTH_SHORT)
                     .show();
             return;
         }
@@ -321,18 +320,18 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
             Log.v("and here", "found you!");
             // NOTE: We can use getFromDate() and getFromTime() because:
             // the text in txtDueByDate = txtFromDate and same for time
-            Deadline dl = new Deadline(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), true);
+            Deadline dl = new Deadline(getPriority(), title, getDescription(), getFromDate(), getFromTime(), true);
             dl.saveToStorage(this);
         }
         else if(isHabitTaskString(spinnerSelection))
         {
-            Habit task = new Habit(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
+            Habit task = new Habit(getPriority(), title, getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
             task.saveToStorage(this);
         }
         else if(isEventTaskString(spinnerSelection))
         {
             Log.v("createTask()", "saving event");
-            Event task = new Event(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
+            Event task = new Event(getPriority(), title, getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
             task.saveToStorage(this);
         }
     }

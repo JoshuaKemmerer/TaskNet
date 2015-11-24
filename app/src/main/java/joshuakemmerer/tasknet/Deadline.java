@@ -80,4 +80,9 @@ public class Deadline extends Task
         this.tasknetVisibilityDate = tasknetVisibilityDate;
     }
 
+    public static String getCanonicalName()
+    {
+        return Deadline.class.getCanonicalName();
+    }
+
 }
