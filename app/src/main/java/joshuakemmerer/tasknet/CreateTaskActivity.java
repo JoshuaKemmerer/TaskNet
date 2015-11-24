@@ -181,27 +181,29 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
-//        String[] taskTypes = getResources().getStringArray(R.array.spinnerItems_taskTypes);
         if(isDeadlineTaskString((int) id))
         {// code for Deadline task
-            showOngoingEventControls(false, false);
+            showEventControls(false);
             showDeadlineControls(true);
+            showHabitControls(false);
         }
-        else if(isOngoingTaskString((int)id))
+        else if(isHabitTaskString((int) id))
         {// code for Habit task
-            showOngoingEventControls(true, true);
+            showEventControls(false);
             showDeadlineControls(false);
+            showHabitControls(true);
         }
         else if(isEventTaskString((int)id))
         {// code for Event task
-            showOngoingEventControls(true, false);
+            showEventControls(true);
             showDeadlineControls(false);
+            showHabitControls(false);
         }
     }
 
-    protected void showOngoingEventControls(boolean doShow, boolean isOngoing)
+    protected void showEventControls(boolean doShow)
     {
-        RelativeLayout rl = (RelativeLayout)findViewById(R.id.rlOngoingEventControls);
+        RelativeLayout rl = (RelativeLayout)findViewById(R.id.rlEventControls);
         if(doShow)
         {
             rl.setVisibility(View.VISIBLE);
@@ -213,6 +215,17 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
     protected void showDeadlineControls(boolean doShow)
     {
         RelativeLayout rl = (RelativeLayout)findViewById(R.id.rlDeadlineEventControls);
+        if(doShow)
+        {
+            rl.setVisibility(View.VISIBLE);
+        }
+        else
+            rl.setVisibility(View.GONE);
+    }
+
+    protected void showHabitControls(boolean doShow)
+    {
+        RelativeLayout rl = (RelativeLayout)findViewById(R.id.rlHabitControls);
         if(doShow)
         {
             rl.setVisibility(View.VISIBLE);
@@ -311,7 +324,7 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
             Deadline dl = new Deadline(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), true);
             dl.saveToStorage(this);
         }
-        else if(isOngoingTaskString(spinnerSelection))
+        else if(isHabitTaskString(spinnerSelection))
         {
             Habit task = new Habit(getPriority(), getTaskTitle(), getDescription(), getFromDate(), getFromTime(), getToDate(), getToTime(), true);
             task.saveToStorage(this);
@@ -326,17 +339,17 @@ public class CreateTaskActivity extends AppCompatActivity implements DatePickerD
 
     protected boolean isDeadlineTaskString(int id)
     {
-        return id == 0;
+        return id == 1;
     }
 
-    protected boolean isOngoingTaskString(int id)
+    protected boolean isHabitTaskString(int id)
     {
-        return id == 1;
+        return id == 2;
     }
 
     protected boolean isEventTaskString(int id)
     {
-        return id ==2;
+        return id == 0;
     }
 
     protected int getPriority()

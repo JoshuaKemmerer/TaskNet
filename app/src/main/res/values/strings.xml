@@ -7,9 +7,16 @@
     <string name="TaskAttributeTitle">Title</string>
     <string name="TaskAttributeDescription">Description</string>
     <string name="action_create_task">Save</string>
-    <string-array name="spinnerItems_taskTypes">
+    <string-array name="spinnerItems_taskTypes"><!-- IF YOU CHANGE THESE VALUES, CHANGE CREATETASKACTIVITY -->
         <item>Event</item>
         <item>Deadline</item>
         <item>Habit</item>
+    </string-array>
+    <string-array name="spinnerItems_habitTimeIntervals">
+        <item>1 Day</item>
+        <item>2 Days</item>
+        <item>4 Days</item>
+        <item>1 Week</item>
+        <item>2 Weeks</item>
     </string-array>
 </resources>
