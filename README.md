@@ -12,7 +12,7 @@ The purpose of this Android application is to provide a simple and intuitive int
 
 ## Motivation for This Project
 
-The motivation for this project was that I personally became confused with what projects/assignments were due for school, mostly during the busier weeks. I want an intuitive and sensible interface to combine all of the different tasks I want/need to accomplish, and this is my solution.
+The motivation for this project was that I personally became confused with what projects/assignments were due for school, mostly during the busier weeks. I want an intuitive and sensible interface to combine all of the different tasks I want/need to accomplish, and this is my solution. The app will also serve as a type of digital planner.
 
 I also have a desire to help other people become more organized, so I hope that this solution will one day help others.
 
